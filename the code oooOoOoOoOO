@@ -1,0 +1,34 @@
+//here ya go
+
+
+void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.B)) {
+            if (BuyMenuOpen)
+            {
+                Resume();
+            }
+            else
+            {
+                OpenBuyMenu();
+            }
+        }
+    }
+
+    void Resume()
+    {
+        BuyMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        BuyMenuOpen = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
+    void OpenBuyMenu()
+    {
+        BuyMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        BuyMenuOpen = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
